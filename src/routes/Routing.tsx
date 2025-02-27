@@ -1,15 +1,12 @@
-import React from 'react';
+import { FC } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Register from '@/pages/Auth/Register';
-import Login from '@/pages/Auth/Login';
-import Home from '@/pages/Home/Home';
+import { UserForm } from '@/pages';
 
-const Routing = () => {
+const Routing: FC = () => {
   return (
     <Routes>
-      <Route path="*" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      <Route path="/" element={<UserForm />} />
+      <Route path="/wizard/*" element={<UserForm />} />
     </Routes>
   );
 };

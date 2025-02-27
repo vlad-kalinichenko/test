@@ -6,21 +6,14 @@ const initialState = {
   mode: localStorage.getItem('mode')
     ? localStorage.getItem('mode')
     : window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light',
+    ? 'dark'
+    : 'light',
 };
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setCredentials: (state, action) => {
-      state.token = action.payload.token;
-      state.user = action.payload.user;
-    },
-    setToken: (state, action) => {
-      state.token = action.payload;
-    },
     changeMode: (state) => {
       if (state.mode === 'light') {
         state.mode = 'dark';
@@ -33,6 +26,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setCredentials, setToken, changeMode } = userSlice.actions;
+export const { changeMode } = userSlice.actions;
 
 export default userSlice.reducer;
